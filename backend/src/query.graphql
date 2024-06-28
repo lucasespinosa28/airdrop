@@ -1,0 +1,24 @@
+query isFollowing {
+  Wallet(input: {identity: "fc_fname:ipeciura.eth", blockchain: ethereum}) {
+    socialFollowers( # Check if fc_fname:ipeciura.eth is a follower of these user identities on Lens
+      input: {filter: {identity: {_in: ["0xeaf55242a90bb3289dB8184772b0B98562053559", "betashop.eth", "yosephks.cb.id", "lens/@deepesh", "lens_id:100275", "fc_fname:dawufi", "fc_fid:602"]}, dappName: {_eq: farcaster}}}
+    ) {
+      Follower {
+        dappName
+        dappSlug
+        followingProfileId
+        followerProfileId
+        followingAddress {
+          addresses
+          socials {
+            dappName
+            profileName
+          }
+          domains {
+            name
+          }
+        }
+      }
+    }
+  }
+}

@@ -3,7 +3,6 @@ import {
   error,
   IRequest,
   json,
-  json,
   Router,
   withContent,
   withParams,
@@ -156,8 +155,11 @@ router
   })
   .post("/giveway", async (request, env) => {
     const body = await request.json<Warpcast>();
+    console.log({body});
     console.log({ contract: body.contract });
+    console.log(body.contract)
     let channel = await env.basezoraairdrop.get(body.contract);
+    console.log(channel)
     console.log({ body, channel });
     console.log({ fid: body.fid, channel });
     if (!channel) {
@@ -179,7 +181,7 @@ FarcasterChannelParticipants(
 input: {
 filter: {
 participant: { _eq: "fc_fid:${body.fid}" }
-channelId: { _eq: "${channel}" }
+channelId: { _eq: "base" }
 channelActions: { _eq: follow }
 }
 blockchain: ALL

@@ -8,7 +8,7 @@ export function LogoutButton() {
 
   return (
     <button disabled={disableLogout} onClick={logout}>
-      Log out
+      <span className="text-red-600 w-full font-bold">Log out</span>
     </button>
   );
 }

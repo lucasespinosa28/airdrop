@@ -7,8 +7,14 @@ export function LoginButton() {
   const disableLogin = !ready || (ready && authenticated);
 
   return (
-    <button disabled={disableLogin} onClick={login}>
-      Log in
-    </button>
+    <>
+      <button
+        className="bg-lime-500 m-2 hover:bg-lime-600 text-white font-semibold py-2 px-4 rounded"
+        disabled={disableLogin}
+        onClick={login}
+      >
+        Connect Account
+      </button>
+    </>
   );
 }

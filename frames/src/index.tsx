@@ -8,14 +8,8 @@ type Env = {
   MY_APP_LABEL: string;
 };
 
-export type State = {
-  count: number;
-};
 
 const frames = createFrames<JsonValue | undefined, Env>({
-  initialState: {
-    count: 0,
-  },
 });
 const fetch = frames(async (ctx) => {
   const message = ctx.message;
@@ -38,8 +32,6 @@ const fetch = frames(async (ctx) => {
         }}
       >
         <img style={{marginTop:"15",width:"50%",height:"80%"}} src={`https://utfs.io/f/${thumbnail}.png`}/>
-        {/* {message && <h1>{message.requesterFid}</h1>}
-        {message && <span>{JSON.stringify(json)}</span>} */}
         <h2 style={{ paddingBottom: "50", textAlign: "center" }}>
           Giveway free nft to follower
         </h2>
@@ -61,26 +53,6 @@ const fetch = frames(async (ctx) => {
         ],
   };
 });
-//<img src={`https://utfs.io/f/${da2314fc-4d85-46cd-a32e-7e61f238b1b0-sy7y5e}.png`} />
 export default {
   fetch,
 } satisfies ExportedHandler<Env>;
-//646523
-// const fetch = frames(async (ctx) => {
-//   const message = ctx.message;
-
-//   return {
-//     image: message ? (
-//       <div style={{ display: "flex", flexDirection: "column" }}>
-//         GM, {message.requesterUserData?.displayName || "anonymous"}! Your FID is{" "}
-//         {message.requesterFid},{" "}
-//         {message.requesterFid < 20000
-//           ? "you're OG!"
-//           : "welcome to the Farcaster!"}
-//       </div>
-//     ) : (
-//       <div>Say GM</div>
-//     ),
-//     buttons: message ? [] : [<Button action="post">Say GM</Button>],
-//   };
-// });
